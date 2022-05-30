@@ -11,7 +11,6 @@ import java.time.OffsetDateTime;
 public class task3 {
 
     @GetMapping(value = "/{format}")
-    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public ResponseEntity<?> healthcheck(@PathVariable String format) {
 
         if (format.equalsIgnoreCase("short")) {
