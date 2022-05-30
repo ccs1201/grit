@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 
 @RestController
 @RequestMapping("/healthcheck")
-public class task3 {
+public class Task3 {
 
 
     @GetMapping

@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class task3Test {
+class Task3Test {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,6 +41,15 @@ class task3Test {
     @DisplayName("Testa request GET inválido deveria retornar BAD_REQUEST")
     void getInvalido() throws Exception {
         mockMvc.perform(get("/healthcheck/sdfdsf")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+
+    }
+
+    @Test
+    @DisplayName("Testa request GET vazio/root deveria retornar BAD_REQUEST")
+    void getRootInvalido() throws Exception {
+        mockMvc.perform(get("/healthcheck")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
 
